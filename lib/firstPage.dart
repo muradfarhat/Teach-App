@@ -21,7 +21,14 @@ class _firstPageState extends State<firstPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: basicColor,
-        leading: const Icon(Icons.smart_toy_sharp),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => about()),
+              );
+            },
+            icon: const Icon(Icons.smart_toy_sharp)),
         title: const Text(
           "تعلم عن طريق اللعب",
           textDirection: TextDirection.rtl,
