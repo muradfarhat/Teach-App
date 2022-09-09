@@ -11,6 +11,7 @@ class rabit extends StatefulWidget {
 class _rabitState extends State<rabit> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
   double score = 0.0;
+  bool wrong = true;
 
   @override
   Widget build(BuildContext context) {
@@ -94,8 +95,8 @@ class _rabitState extends State<rabit> {
                 ),
                 Text(
                   widget.Ar_En == "ar"
-                      ? "- مشهور بكثرة الإنجاب."
-                      : "- Give birth a lot.",
+                      ? "- يحب أكل الجزر."
+                      : "- Likes to eat carrots.",
                   style: const TextStyle(
                       fontSize: 16, color: Color.fromARGB(255, 220, 148, 39)),
                   textDirection: widget.Ar_En == "ar"
@@ -104,7 +105,35 @@ class _rabitState extends State<rabit> {
                 ),
               ],
             ),
-          )
+          ),
+          Container(
+            margin: const EdgeInsets.all(15),
+            width: double.infinity,
+            height: 250,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: wrong
+                        ? AssetImage("images/who.jpg")
+                        : AssetImage("images/rabit.jpg"),
+                    fit: BoxFit.cover),
+                border:
+                    Border.all(color: const Color.fromARGB(255, 220, 148, 39)),
+                borderRadius: const BorderRadius.all(Radius.circular(15))),
+          ),
+          Container(
+            margin: const EdgeInsets.only(bottom: 15),
+            child: Text(
+              widget.Ar_En == "ar"
+                  ? "ما هو اسم هذا الحيوان ؟"
+                  : "What is the name of this animal ?",
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 220, 148, 39)),
+              textDirection:
+                  widget.Ar_En == "ar" ? TextDirection.rtl : TextDirection.ltr,
+            ),
+          ),
         ],
       )),
     );

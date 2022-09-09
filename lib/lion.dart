@@ -11,6 +11,7 @@ class lion extends StatefulWidget {
 
 class _lionState extends State<lion> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
+  bool wrong = true;
 
   @override
   Widget build(BuildContext context) {
