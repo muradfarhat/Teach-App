@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:teachapp/about.dart';
-import 'package:teachapp/lion.dart';
 import 'package:teachapp/rabit.dart';
 
 class firstPage extends StatefulWidget {
@@ -135,6 +132,8 @@ class _firstPageState extends State<firstPage> {
             alignment: Alignment.center,
             //margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 45),
             child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0)),
               height: 50,
               color: basicColor,
               onPressed: () {
