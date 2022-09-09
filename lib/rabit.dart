@@ -182,7 +182,11 @@ class _rabitState extends State<rabit> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0)),
                     height: 50,
-                    onPressed: () {},
+                    onPressed: () {
+                      if (wrong) {
+                        cannotMove();
+                      }
+                    },
                     color: basicColor,
                     child: Row(
                       children: [
@@ -354,6 +358,34 @@ class _rabitState extends State<rabit> {
             widget.Ar_En == "ar"
                 ? "الاجابة خاطئة -5 نجوم"
                 : "Wrong Answer -5 Stars",
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+      duration: const Duration(seconds: 2),
+      margin: const EdgeInsets.all(20),
+    ));
+  }
+
+  cannotMove() {
+    return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Color.fromARGB(255, 127, 110, 109).withOpacity(0.7),
+      content: Row(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 15),
+            child: const Icon(
+              Icons.warning,
+              color: Colors.white,
+              size: 35,
+            ),
+          ),
+          Text(
+            widget.Ar_En == "ar"
+                ? "أجب على هذا السؤال بشكل صحيح اولاً"
+                : "Answer this question correctly first",
             style: const TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold),
           )
