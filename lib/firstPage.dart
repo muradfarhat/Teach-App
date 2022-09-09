@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:teachapp/about.dart';
 import 'package:teachapp/lion.dart';
+import 'package:teachapp/rabit.dart';
 
 class firstPage extends StatefulWidget {
   firstPage({Key? key}) : super(key: key);
@@ -140,12 +141,12 @@ class _firstPageState extends State<firstPage> {
                 if (selected == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => lion("en")),
+                    MaterialPageRoute(builder: (context) => rabit("en")),
                   );
                 } else if (selected == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => lion("ar")),
+                    MaterialPageRoute(builder: (context) => rabit("ar")),
                   );
                 } else {
                   showDialog(
