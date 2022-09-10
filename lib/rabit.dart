@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachapp/dog.dart';
 
 class rabit extends StatefulWidget {
   String Ar_En;
@@ -189,6 +190,8 @@ class _rabitState extends State<rabit> {
                           answerValue += valueEnglish[i]["$i"];
                         }
 
+                        answerValue = answerValue.toLowerCase();
+
                         if (answerValue == englishAnswer) {
                           setState(() {
                             wrong = false;
@@ -247,6 +250,20 @@ class _rabitState extends State<rabit> {
                     onPressed: () {
                       if (wrong) {
                         cannotMove();
+                      } else {
+                        if (widget.Ar_En == "ar") {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => dog("ar", score)),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => dog("en", score)),
+                          );
+                        }
                       }
                     },
                     color: basicColor,

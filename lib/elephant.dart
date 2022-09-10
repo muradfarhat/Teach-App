@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:teachapp/lion.dart';
 
-class lion extends StatefulWidget {
+class elephant extends StatefulWidget {
   String Ar_En;
   double score;
-  lion(this.Ar_En, this.score, {Key? key}) : super(key: key);
+  elephant(this.Ar_En, this.score, {Key? key}) : super(key: key);
 
   @override
-  State<lion> createState() => _lionState();
+  State<elephant> createState() => _elephantState();
 }
 
-class _lionState extends State<lion> {
+class _elephantState extends State<elephant> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
   bool wrong = true;
 
   bool getStars = false;
 
-  String arabicAnswer = "أسد";
-  String arabicAnswer2 = "اسد";
-  String englishAnswer = "lion";
+  String arabicAnswer = "فيل";
+  String arabicAnswer2 = "فيل";
+  String englishAnswer = "elephant";
 
   List<Map> valueArabic = [
     {"0": ""},
@@ -30,8 +31,11 @@ class _lionState extends State<lion> {
     {"1": ""},
     {"2": ""},
     {"3": ""},
+    {"4": ""},
+    {"5": ""},
+    {"6": ""},
+    {"7": ""},
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,10 +89,9 @@ class _lionState extends State<lion> {
                       : TextDirection.ltr,
                 ),
                 hints("- يعيش في الغابة.", "- live in the jungle."),
-                hints("- حيوان مفترس.", "- from predators."),
-                hints("- له شعر كثيف.", "- He has thick hair."),
-                hints("- يسمى ملك الغابة.",
-                    "- It's called the king of the jungle."),
+                hints("- حيوان ضخم.", "- big animal."),
+                hints("- يتغذى على النباتات.", "- It feeds on plants."),
+                hints("- له اذنين كبيرتين.", "- He has two big ears."),
               ],
             ),
           ),
@@ -100,7 +103,7 @@ class _lionState extends State<lion> {
                 image: DecorationImage(
                     image: wrong
                         ? const AssetImage("images/who.jpg")
-                        : const AssetImage("images/lion.jpg"),
+                        : const AssetImage("images/elephant.jpg"),
                     fit: BoxFit.contain),
                 border:
                     Border.all(color: const Color.fromARGB(255, 220, 148, 39)),
@@ -140,7 +143,11 @@ class _lionState extends State<lion> {
                       _textField(first: true, last: false, i: 0),
                       _textField(first: false, last: false, i: 1),
                       _textField(first: false, last: false, i: 2),
-                      _textField(first: false, last: true, i: 3),
+                      _textField(first: false, last: false, i: 3),
+                      _textField(first: false, last: false, i: 4),
+                      _textField(first: false, last: false, i: 5),
+                      _textField(first: false, last: false, i: 6),
+                      _textField(first: false, last: true, i: 7),
                     ],
                   ),
           ),
@@ -245,19 +252,19 @@ class _lionState extends State<lion> {
                       if (wrong) {
                         cannotMove();
                       } else {
-                        // if (widget.Ar_En == "ar") {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => lion("ar", widget.score)),
-                        //   );
-                        // } else {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => lion("en", widget.score)),
-                        //   );
-                        // }
+                        if (widget.Ar_En == "ar") {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => lion("ar", widget.score)),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => lion("en", widget.score)),
+                          );
+                        }
                       }
                     },
                     color: basicColor,
