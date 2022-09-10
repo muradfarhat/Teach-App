@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachapp/about.dart';
+import 'package:teachapp/finalPage.dart';
 import 'package:teachapp/rabit.dart';
 
 class firstPage extends StatefulWidget {
@@ -26,7 +27,10 @@ class _firstPageState extends State<firstPage> {
                 MaterialPageRoute(builder: (context) => about()),
               );
             },
-            icon: const Icon(Icons.smart_toy_sharp)),
+            icon: const Icon(
+              Icons.smart_toy_sharp,
+              color: Colors.white,
+            )),
         title: const Text(
           "تعلم عن طريق اللعب",
           textDirection: TextDirection.rtl,

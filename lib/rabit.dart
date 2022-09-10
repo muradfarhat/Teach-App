@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachapp/dog.dart';
+import 'package:teachapp/firstPage.dart';
 
 class rabit extends StatefulWidget {
   String Ar_En;
@@ -41,6 +42,20 @@ class _rabitState extends State<rabit> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 15),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => firstPage()),
+                  );
+                },
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.white,
+                )),
+          ),
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const Icon(

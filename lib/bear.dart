@@ -1,42 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:teachapp/camel.dart';
 import 'package:teachapp/firstPage.dart';
-import 'package:teachapp/lion.dart';
 
-class elephant extends StatefulWidget {
+class bear extends StatefulWidget {
   String Ar_En;
   double score;
-  elephant(this.Ar_En, this.score, {Key? key}) : super(key: key);
+  bear(this.Ar_En, this.score, {Key? key}) : super(key: key);
 
   @override
-  State<elephant> createState() => _elephantState();
+  State<bear> createState() => _bearState();
 }
 
-class _elephantState extends State<elephant> {
+class _bearState extends State<bear> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
   bool wrong = true;
 
   bool getStars = false;
 
-  String arabicAnswer = "فيل";
-  String arabicAnswer2 = "فيل";
-  String englishAnswer = "elephant";
+  String arabicAnswer = "دب";
+  String arabicAnswer2 = "دب";
+  String englishAnswer = "bear";
 
   List<Map> valueArabic = [
     {"0": ""},
     {"1": ""},
-    {"2": ""},
   ];
 
   List<Map> valueEnglish = [
     {"0": ""},
     {"1": ""},
     {"2": ""},
-    {"3": ""},
     {"4": ""},
-    {"5": ""},
-    {"6": ""},
-    {"7": ""},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +99,11 @@ class _elephantState extends State<elephant> {
                       ? TextDirection.rtl
                       : TextDirection.ltr,
                 ),
-                hints("- يعيش في الغابة.", "- live in the jungle."),
-                hints("- حيوان ضخم.", "- big animal."),
-                hints("- يتغذى على النباتات.", "- It feeds on plants."),
-                hints("- له اذنين كبيرتين.", "- He has two big ears."),
+                hints("- حيوان ضخم و له فرو.", "- A large animal with fur."),
+                hints("- يعيش في الغابة وفي المناطق الباردة.",
+                    "- Lives in the forest and in cold regions."),
+                hints("- يتغذى على السمك والتوت البري.",
+                    "- It feeds on fish and cranberries."),
               ],
             ),
           ),
@@ -118,7 +115,7 @@ class _elephantState extends State<elephant> {
                 image: DecorationImage(
                     image: wrong
                         ? const AssetImage("images/who.jpg")
-                        : const AssetImage("images/elephant.jpg"),
+                        : const AssetImage("images/bear.jpg"),
                     fit: BoxFit.contain),
                 border:
                     Border.all(color: const Color.fromARGB(255, 220, 148, 39)),
@@ -148,8 +145,7 @@ class _elephantState extends State<elephant> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       _textFieldArabic(first: false, last: true, i: 0),
-                      _textFieldArabic(first: false, last: false, i: 1),
-                      _textFieldArabic(first: true, last: false, i: 2),
+                      _textFieldArabic(first: true, last: false, i: 1),
                     ],
                   )
                 : Row(
@@ -158,11 +154,7 @@ class _elephantState extends State<elephant> {
                       _textField(first: true, last: false, i: 0),
                       _textField(first: false, last: false, i: 1),
                       _textField(first: false, last: false, i: 2),
-                      _textField(first: false, last: false, i: 3),
-                      _textField(first: false, last: false, i: 4),
-                      _textField(first: false, last: false, i: 5),
-                      _textField(first: false, last: false, i: 6),
-                      _textField(first: false, last: true, i: 7),
+                      _textField(first: false, last: true, i: 3),
                     ],
                   ),
           ),
@@ -271,13 +263,15 @@ class _elephantState extends State<elephant> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("ar", widget.score)),
+                                builder: (context) =>
+                                    camel("ar", widget.score)),
                           );
                         } else {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("en", widget.score)),
+                                builder: (context) =>
+                                    camel("en", widget.score)),
                           );
                         }
                       }

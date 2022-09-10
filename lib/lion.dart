@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teachapp/firstPage.dart';
+import 'package:teachapp/graph.dart';
 
 class lion extends StatefulWidget {
   String Ar_En;
@@ -37,6 +39,20 @@ class _lionState extends State<lion> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 15),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => firstPage()),
+                  );
+                },
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.white,
+                )),
+          ),
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const Icon(
@@ -245,19 +261,21 @@ class _lionState extends State<lion> {
                       if (wrong) {
                         cannotMove();
                       } else {
-                        // if (widget.Ar_En == "ar") {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => lion("ar", widget.score)),
-                        //   );
-                        // } else {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => lion("en", widget.score)),
-                        //   );
-                        // }
+                        if (widget.Ar_En == "ar") {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    graph("ar", widget.score)),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    graph("en", widget.score)),
+                          );
+                        }
                       }
                     },
                     color: basicColor,

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:teachapp/cow.dart';
 import 'package:teachapp/firstPage.dart';
-import 'package:teachapp/lion.dart';
 
-class elephant extends StatefulWidget {
+class cat extends StatefulWidget {
   String Ar_En;
   double score;
-  elephant(this.Ar_En, this.score, {Key? key}) : super(key: key);
+  cat(this.Ar_En, this.score, {Key? key}) : super(key: key);
 
   @override
-  State<elephant> createState() => _elephantState();
+  State<cat> createState() => _catState();
 }
 
-class _elephantState extends State<elephant> {
+class _catState extends State<cat> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
   bool wrong = true;
 
   bool getStars = false;
 
-  String arabicAnswer = "فيل";
-  String arabicAnswer2 = "فيل";
-  String englishAnswer = "elephant";
+  String arabicAnswer = "قطة";
+  String arabicAnswer2 = "قطه";
+  String englishAnswer = "cat";
 
   List<Map> valueArabic = [
     {"0": ""},
@@ -31,12 +31,8 @@ class _elephantState extends State<elephant> {
     {"0": ""},
     {"1": ""},
     {"2": ""},
-    {"3": ""},
-    {"4": ""},
-    {"5": ""},
-    {"6": ""},
-    {"7": ""},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +99,9 @@ class _elephantState extends State<elephant> {
                       ? TextDirection.rtl
                       : TextDirection.ltr,
                 ),
-                hints("- يعيش في الغابة.", "- live in the jungle."),
-                hints("- حيوان ضخم.", "- big animal."),
-                hints("- يتغذى على النباتات.", "- It feeds on plants."),
-                hints("- له اذنين كبيرتين.", "- He has two big ears."),
+                hints("- من الحيوانات الأليفة.", "- From pets."),
+                hints(
+                    "- يتم تربيتها في المنازل.", "- They are raised at home."),
               ],
             ),
           ),
@@ -118,7 +113,7 @@ class _elephantState extends State<elephant> {
                 image: DecorationImage(
                     image: wrong
                         ? const AssetImage("images/who.jpg")
-                        : const AssetImage("images/elephant.jpg"),
+                        : const AssetImage("images/cat.jpg"),
                     fit: BoxFit.contain),
                 border:
                     Border.all(color: const Color.fromARGB(255, 220, 148, 39)),
@@ -157,12 +152,7 @@ class _elephantState extends State<elephant> {
                     children: [
                       _textField(first: true, last: false, i: 0),
                       _textField(first: false, last: false, i: 1),
-                      _textField(first: false, last: false, i: 2),
-                      _textField(first: false, last: false, i: 3),
-                      _textField(first: false, last: false, i: 4),
-                      _textField(first: false, last: false, i: 5),
-                      _textField(first: false, last: false, i: 6),
-                      _textField(first: false, last: true, i: 7),
+                      _textField(first: false, last: true, i: 2),
                     ],
                   ),
           ),
@@ -271,13 +261,13 @@ class _elephantState extends State<elephant> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("ar", widget.score)),
+                                builder: (context) => cow("ar", widget.score)),
                           );
                         } else {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("en", widget.score)),
+                                builder: (context) => cow("en", widget.score)),
                           );
                         }
                       }

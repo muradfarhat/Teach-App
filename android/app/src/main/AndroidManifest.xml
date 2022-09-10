@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.teachapp">
    <application
-        android:label="teachapp"
+        android:label="احزر الحيوان"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

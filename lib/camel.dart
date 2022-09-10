@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:teachapp/firstPage.dart';
-import 'package:teachapp/lion.dart';
+import 'package:teachapp/sharke.dart';
 
-class elephant extends StatefulWidget {
+class camel extends StatefulWidget {
   String Ar_En;
   double score;
-  elephant(this.Ar_En, this.score, {Key? key}) : super(key: key);
+  camel(this.Ar_En, this.score, {Key? key}) : super(key: key);
 
   @override
-  State<elephant> createState() => _elephantState();
+  State<camel> createState() => _camelState();
 }
 
-class _elephantState extends State<elephant> {
+class _camelState extends State<camel> {
   Color basicColor = const Color.fromARGB(255, 246, 63, 63);
   bool wrong = true;
 
   bool getStars = false;
 
-  String arabicAnswer = "فيل";
-  String arabicAnswer2 = "فيل";
-  String englishAnswer = "elephant";
+  String arabicAnswer = "جمل";
+  String arabicAnswer2 = "جمل";
+  String englishAnswer = "camel";
 
   List<Map> valueArabic = [
     {"0": ""},
@@ -33,10 +33,8 @@ class _elephantState extends State<elephant> {
     {"2": ""},
     {"3": ""},
     {"4": ""},
-    {"5": ""},
-    {"6": ""},
-    {"7": ""},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +101,11 @@ class _elephantState extends State<elephant> {
                       ? TextDirection.rtl
                       : TextDirection.ltr,
                 ),
-                hints("- يعيش في الغابة.", "- live in the jungle."),
-                hints("- حيوان ضخم.", "- big animal."),
-                hints("- يتغذى على النباتات.", "- It feeds on plants."),
-                hints("- له اذنين كبيرتين.", "- He has two big ears."),
+                hints("- حيوان يعيش في المناطق الحارة.",
+                    "- An animal that lives in warm regions."),
+                hints("- يتحمل العطش الشديد.", "- Endures extreme thirst."),
+                hints("- يسمى بسفينة الصحراء.",
+                    "- It is called the ship of the desert."),
               ],
             ),
           ),
@@ -118,7 +117,7 @@ class _elephantState extends State<elephant> {
                 image: DecorationImage(
                     image: wrong
                         ? const AssetImage("images/who.jpg")
-                        : const AssetImage("images/elephant.jpg"),
+                        : const AssetImage("images/camel.jpg"),
                     fit: BoxFit.contain),
                 border:
                     Border.all(color: const Color.fromARGB(255, 220, 148, 39)),
@@ -159,10 +158,7 @@ class _elephantState extends State<elephant> {
                       _textField(first: false, last: false, i: 1),
                       _textField(first: false, last: false, i: 2),
                       _textField(first: false, last: false, i: 3),
-                      _textField(first: false, last: false, i: 4),
-                      _textField(first: false, last: false, i: 5),
-                      _textField(first: false, last: false, i: 6),
-                      _textField(first: false, last: true, i: 7),
+                      _textField(first: false, last: true, i: 4),
                     ],
                   ),
           ),
@@ -271,13 +267,15 @@ class _elephantState extends State<elephant> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("ar", widget.score)),
+                                builder: (context) =>
+                                    sharke("ar", widget.score)),
                           );
                         } else {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => lion("en", widget.score)),
+                                builder: (context) =>
+                                    sharke("en", widget.score)),
                           );
                         }
                       }
