@@ -13,9 +13,27 @@ class _rabitState extends State<rabit> {
   double score = 0.0;
   bool wrong = true;
 
+  bool getStars = false;
+
   String arabicAnswer = "ارنب";
   String arabicAnswer2 = "أرنب";
   String englishAnswer = "rabbit";
+
+  List<Map> valueArabic = [
+    {"0": ""},
+    {"1": ""},
+    {"2": ""},
+    {"3": ""},
+  ];
+
+  List<Map> valueEnglish = [
+    {"0": ""},
+    {"1": ""},
+    {"2": ""},
+    {"3": ""},
+    {"4": ""},
+    {"5": ""},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -113,21 +131,21 @@ class _rabitState extends State<rabit> {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _textFieldArabic(first: false, last: true),
-                      _textFieldArabic(first: false, last: false),
-                      _textFieldArabic(first: false, last: false),
-                      _textFieldArabic(first: true, last: false),
+                      _textFieldArabic(first: false, last: true, i: 0),
+                      _textFieldArabic(first: false, last: false, i: 1),
+                      _textFieldArabic(first: false, last: false, i: 2),
+                      _textFieldArabic(first: true, last: false, i: 3),
                     ],
                   )
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _textField(first: true, last: false),
-                      _textField(first: false, last: false),
-                      _textField(first: false, last: false),
-                      _textField(first: false, last: false),
-                      _textField(first: false, last: false),
-                      _textField(first: false, last: true),
+                      _textField(first: true, last: false, i: 0),
+                      _textField(first: false, last: false, i: 1),
+                      _textField(first: false, last: false, i: 2),
+                      _textField(first: false, last: false, i: 3),
+                      _textField(first: false, last: false, i: 4),
+                      _textField(first: false, last: true, i: 5),
                     ],
                   ),
           ),
@@ -143,6 +161,50 @@ class _rabitState extends State<rabit> {
                         borderRadius: BorderRadius.circular(30.0)),
                     height: 50,
                     onPressed: () {
+                      if (widget.Ar_En == "ar") {
+                        String answerValue = "";
+                        for (int i = valueArabic.length - 1; i >= 0; i--) {
+                          answerValue += valueArabic[i]["$i"];
+                        }
+
+                        if (answerValue == arabicAnswer ||
+                            answerValue == arabicAnswer2) {
+                          setState(() {
+                            wrong = false;
+                            if (getStars == false) {
+                              score += 10.0;
+                              getStars = true;
+                            }
+                          });
+                        } else {
+                          setState(() {
+                            if (getStars == false) {
+                              score -= 5.0;
+                            }
+                          });
+                        }
+                      } else {
+                        String answerValue = "";
+                        for (int i = 0; i < valueEnglish.length; i++) {
+                          answerValue += valueEnglish[i]["$i"];
+                        }
+
+                        if (answerValue == englishAnswer) {
+                          setState(() {
+                            wrong = false;
+                            if (getStars == false) {
+                              score += 10.0;
+                              getStars = true;
+                            }
+                          });
+                        } else {
+                          setState(() {
+                            if (getStars == false) {
+                              score -= 5.0;
+                            }
+                          });
+                        }
+                      }
                       if (wrong) {
                         showFaildSnackBarMSG();
                       } else {
@@ -235,19 +297,29 @@ class _rabitState extends State<rabit> {
     );
   }
 
-  _textField({required bool first, last}) {
+  _textField({required bool first, required bool last, required int i}) {
     return Container(
       height: 60,
       child: AspectRatio(
         aspectRatio: 0.7,
         child: TextField(
-          autofocus: true,
+          //autofocus: true,
           onChanged: (value) {
             if (value.length == 1 && last == false) {
+              setState(() {
+                valueEnglish[i]["$i"] = value;
+              });
               FocusScope.of(context).nextFocus();
             }
             if (value.length == 0 && first == false) {
+              setState(() {
+                valueEnglish[i]["$i"] = value;
+              });
               FocusScope.of(context).previousFocus();
+            } else {
+              setState(() {
+                valueEnglish[i]["$i"] = value;
+              });
             }
           },
           showCursor: false,
@@ -273,7 +345,7 @@ class _rabitState extends State<rabit> {
     );
   }
 
-  _textFieldArabic({required bool first, last}) {
+  _textFieldArabic({required bool first, required bool last, required int i}) {
     return Container(
       height: 60,
       child: AspectRatio(
@@ -282,10 +354,20 @@ class _rabitState extends State<rabit> {
           //autofocus: true,
           onChanged: (value) {
             if (value.length == 1 && last == false) {
+              setState(() {
+                valueArabic[i]["$i"] = value;
+              });
               FocusScope.of(context).previousFocus();
             }
             if (value.length == 0 && first == false) {
+              setState(() {
+                valueArabic[i]["$i"] = value;
+              });
               FocusScope.of(context).nextFocus();
+            } else {
+              setState(() {
+                valueArabic[i]["$i"] = value;
+              });
             }
           },
           showCursor: false,
