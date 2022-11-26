@@ -1,16 +1,2 @@
-# teachapp
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Teach App
+It is a mobile application designed with the Dart language and flutter framework, and it is an application intended for children to teach them the names and shapes of animals through the image. The application contains several questions and each question contains several hints about a particular animal and the child has to guess the name of this animal A correct image of the animal appears and he moves to the next question and his score increases. The application is also available in Arabic and English.
